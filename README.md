@@ -6,6 +6,7 @@ default on a loan that may arise from a borrower failing to make required paymen
 The goal is to model credit risk with the highest Specificity (true negative rate).
 
 The dataset is composed of three components:
+
 -Financial rating,'finr' (from 1 to 10) is based on financial indicators of a borrower.
 
 -Nonfinancial rating, 'nfinr' (from 1 to 10) is based on qualitative information about a borrower.
