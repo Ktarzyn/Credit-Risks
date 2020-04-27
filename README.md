@@ -1,5 +1,6 @@
 # Credit-Risks
 Assessing of credit risks using R and Python
+
 Business problem: There is a bank specialized on SME lending. Lending business is exposed to credit risk. Credit risk is the risk of 
 default on a loan that may arise from a borrower failing to make required payments. 
 The goal is to model credit risk with the highest Specificity (true negative rate).
