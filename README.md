@@ -7,8 +7,11 @@ The goal is to model credit risk with the highest Specificity (true negative rat
 
 The dataset is composed of three components:
 -Financial rating,'finr' (from 1 to 10) is based on financial indicators of a borrower.
+
 -Nonfinancial rating, 'nfinr' (from 1 to 10) is based on qualitative information about a borrower.
+
 -Final rating,'fr' (from 1 to 10) incorporates financial and nonfinancial rating weighed by 70% and 30% respectively. Final rating is used by the bank in its lending process for credit decisions and loan monitoring.
+
 Target feature: Default flag  'df' ('0' - not default, '1' - default)
 
 Solved tasks:
