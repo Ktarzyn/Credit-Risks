@@ -14,16 +14,12 @@ first_train$df <- factor(first_train$df)
 #fit logistic regression model (logit)
 #independent variables -- finantial, nonfinantial and fr ratings, dependent (output) variable -- df
 glm_mod_logit<- glm(formula = df ~ finr + nfinr + fr, family = binomial(link = "logit"), data = first_train)
-glm_mod_probit <- glm(formula = df ~ ., family = binomial(link = "probit"), data = first_train)
 
 library(pscl)
 pR2(glm_mod_logit)
-pR2(glm_mod_probit)
 
 summary(glm_mod_logit)
-summary(glm_mod_logit)
-#get information about model such as coefficients and their sugnificance for the model
-summary(glm_mod_logit)
+
 #predict values using logit model
 first_train$predicted <- predict(glm_mod_logit, type = 'response', newdata = first_train)
 PseudoR2(glm_mod_logit)
