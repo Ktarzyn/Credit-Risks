@@ -21,4 +21,4 @@ Solved tasks:
 3. Quality assessment of the basic logistic regression model(first_logit.R);
 4. Deep data analysis and anomaly exclusion to improve the quality of the mathematical model(data_cleaning_script.R);
 5. Building an improved logit model to decrease credit risks (final_logit.R) and comparing the results.
-6. Using of SMOTE and NearMiss algorithms to solve the problem pf disbalanced data. (SMOTE_on_frDf.ipynb, nearMiss_method_on_frDf.ipynb)
+6. Using of SMOTE and NearMiss algorithms to solve the problem of imbalanced data. (SMOTE_on_frDf.ipynb, nearMiss_method_on_frDf.ipynb)
