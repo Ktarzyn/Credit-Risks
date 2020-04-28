@@ -15,16 +15,10 @@ write.csv(first_test, "first_test.csv", row.names = FALSE)
 first_train$df <- factor(first_train$df)
 #fit logit model independent variables -- finr, nfinr and fr rates, dependent (output) variable -- df
 glm_mod_logit <- glm(formula = df ~ ., family = binomial(link = "logit"), data = first_train)
-glm_mod_logit <- glm(formula = df ~ ., family = binomial(link = "probit"), data = first_train)
 
 library(pscl)
 pR2(glm_mod_logit)
-pR2(glm_mod_logit)
 
-summary(glm_mod_logit)
-summary(glm_mod_logit)
-
-#get information about model such as coefficients and their sugnificance for the model
 summary(glm_mod_logit)
 #predict values using logit model
 first_train$predicted <- predict(glm_mod_logit, type = 'response', newdata = first_train)
@@ -66,5 +60,3 @@ auroc <- round(AUROC(first_test$df, first_test$predicted), 4)
 #culculate Gini coefficient (accuracy ratio). A higher Gini means more predictive power
 gini <- 2*auroc - 1
 print(paste("auroc: ", auroc, "; gini: ", gini, ".", sep = ""))
-write.csv(data, "original_dataset.csv", row.names = FALSE)
-mylist <-(data, data$df)
