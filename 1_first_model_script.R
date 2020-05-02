@@ -1,4 +1,3 @@
-#logit model
 rm(list = ls())
 data <- read.table('original_dataset.csv',header = TRUE, sep = ";")
 #get information about the structure of the dataset
@@ -13,9 +12,10 @@ write.csv(first_train, "first_train.csv", row.names = FALSE)
 write.csv(first_test, "first_test.csv", row.names = FALSE)
 #now df is a category variable
 first_train$df <- factor(first_train$df)
-#fit logit model independent variables -- finr, nfinr and fr rates, dependent (output) variable -- df
+#fit logit model independent variables -- finr, nfinr and fr rates, target (output) variable -- df
 glm_mod_logit <- glm(formula = df ~ ., family = binomial(link = "logit"), data = first_train)
 
+#pseudo R2
 library(pscl)
 pR2(glm_mod_logit)
 
@@ -24,7 +24,7 @@ summary(glm_mod_logit)
 first_train$predicted <- predict(glm_mod_logit, type = 'response', newdata = first_train)
 #Creation of a set of classes 0 and 1 for the test dataset:
 df_pred = ifelse(first_train$predicted > 0.5, 1, 0)
-#get information about proportion of true and false results
+#get information about proportion of true and false results, threshold = 0.5
 print(table(first_train$df, first_train$predicted > 0.5))
 rate_error <- round(mean(df_pred != first_test$df), 4)
 print(paste("rate_error: ", rate_error))
@@ -40,6 +40,7 @@ auroc <- round(AUROC(first_train$df, first_train$predicted), 4)
 #culculate Gini coefficient (accuracy ratio). A higher Gini means more predictive power
 gini <- 2*auroc - 1
 print(paste("auroc: ", auroc, "; gini: ", gini, ".", sep = ""))
+
 #make the same operations to check the model on the test dataset
 first_test$df <- factor(first_test$df)
 first_test$predicted <- predict(glm_mod_logit, type = 'response', newdata = first_test)
