@@ -1,18 +1,5 @@
 rm(list = ls())
 data <- read.table('original_dataset.csv',header = TRUE, sep = ",")
-mylist <-split(data, data$df)
-#making two different sets with zeroes and ones
-zeroes <- mylist$`0`
-ones <- mylist$`1`
-zeroframe <- data.frame(zeroes)
-oneframe <- data.frame(ones)
-
-library (dgof) 
-library(kolmim)
-ones1<-rnorm(oneframe$fr) 
-zeroes0<-rnorm(zeroframe$fr)
-set.seed(0)
-ks.test(ones1, zeroes0, alternative="greater")	
 
 library(plyr)
 #function to compare different rows from tables to see if their finr and nfinr score is equal
