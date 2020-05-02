@@ -1,8 +1,7 @@
-#logit model
 rm(list = ls())
 frDf <- read.table('frDf.csv',header = TRUE, sep = ",")
-#library(ggplot2)
-#ggplot(frDf, aes(df)) + geom_bar(aes(fill = df)) + theme_bw()
+library(ggplot2)
+ggplot(frDf, aes(df)) + geom_bar(aes(fill = df)) + theme_bw()
 #make test dataset and train dataset
 library(caTools)
 set.seed(545)
