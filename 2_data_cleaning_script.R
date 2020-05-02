@@ -64,21 +64,3 @@ for (i in 1:nrow(uniqueDfOne)){
   }
 }
 write.csv(frDf, "frDf.csv", row.names = FALSE)
-
-
-try1 <- read.table('frDf.csv',header = TRUE, sep = ";")
-
-summary(try1)
-mylist1 <-split(try1, try1$df)
-
-zeroes0 <- mylist1$`0`
-ones1 <- mylist1$`1`
-zeroframe0 <- data.frame(zeroes0)
-oneframe1 <- data.frame(ones1)
-
-library (dgof) 
-library(kolmim) 
-ones2<-oneframe1$fr
-zeroes2<-zeroframe0$fr
-set.seed(0)
-ks.test(ones2, zeroes2, alternative="greater")
